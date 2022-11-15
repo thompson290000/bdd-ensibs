@@ -11,7 +11,7 @@ metadata = MetaData()
 metadata.reflect(bind=engine)
 
 # Instantiate faker object
-faker = Faker()
+faker = Faker(['fr-FR'])
 
 
 Evenement = metadata.tables["Evenement"]
@@ -30,8 +30,7 @@ except KeyError as err:
     print("error : Metadata.tables "+str(err)+" not found")
 
 # product list (permet de generer des noms random dans product_list en bas dans la fonction)
-list = ["hat", "cap", "shirt", "sweater", "sweatshirt", "shorts",
-    "jeans", "sneakers", "boots", "coat", "accessories"]
+list = ["58678312","32355556","70814542","72738008","69659261","40183177","89501765","45599573","20992491", "74463511"]
 
 
 class GenerateData:
@@ -95,7 +94,7 @@ class GenerateData:
                         Id_Evenement = faker.random_int(min=1, max=500),
                         #Id_Numero = faker.random_int(min=1, max=500),
                         #Id_Tour = faker.radom_int(min=1, max=500),
-                        Libelle_num = faker.random_string(length=15),
+                        Libelle_num = random.choice(list),
                         #Id_Adherent = faker.random_int(min=1, max=10000),
                         Id_Tour=random.choice(conn.execute(select([Tour.c.Id_Tour])).fetchall())[0],
                         Id_Adherent=random.choice(conn.execute(select([Adherent.c.Id_Adherent])).fetchall())[0],
