@@ -30,7 +30,7 @@ except KeyError as err:
     print("error : Metadata.tables "+str(err)+" not found")
 
 # product list (permet de generer des noms random dans product_list en bas dans la fonction)
-product_list = ["hat", "cap", "shirt", "sweater", "sweatshirt", "shorts",
+list = ["hat", "cap", "shirt", "sweater", "sweatshirt", "shorts",
     "jeans", "sneakers", "boots", "coat", "accessories"]
 
 
@@ -78,7 +78,7 @@ class GenerateData:
             with engine.begin() as conn:
                 for _ in range(self.num_records):
                     insert_stmt = self.table.insert().values(
-                        Nom = faker.random_string(length=11, digits=False),
+                        Nom = faker.random_last_name(),
                         Prenom = faker.first_name(),
                         Gain_total_adherent = faker.random_int(min=1, max=10000),
                         Resultat = faker.boolean(chance_of_getting_true=50),
