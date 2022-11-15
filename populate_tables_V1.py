@@ -94,7 +94,7 @@ class GenerateData:
                         Id_Evenement = faker.random_int(min=1, max=500),
                         #Id_Numero = faker.random_int(min=1, max=500),
                         #Id_Tour = faker.radom_int(min=1, max=500),
-                        Libelle_num = random.choice(list),
+                        Libelle_num = faker.random_int(min=1, max=500),
                         #Id_Adherent = faker.random_int(min=1, max=10000),
                         Id_Tour=random.choice(conn.execute(select([Tour.c.Id_Tour])).fetchall())[0],
                         Id_Adherent=random.choice(conn.execute(select([Adherent.c.Id_Adherent])).fetchall())[0],
