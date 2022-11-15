@@ -78,7 +78,7 @@ class GenerateData:
             with engine.begin() as conn:
                 for _ in range(self.num_records):
                     insert_stmt = self.table.insert().values(
-                        Nom = faker.random_last_name(),
+                        Nom = faker.last_name(),
                         Prenom = faker.first_name(),
                         Gain_total_adherent = faker.random_int(min=1, max=10000),
                         Resultat = faker.boolean(chance_of_getting_true=50),
